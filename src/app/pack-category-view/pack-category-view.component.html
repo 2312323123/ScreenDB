@@ -1,0 +1,24 @@
+<div *ngIf="container">
+    <div class="row" style="margin:0;">
+        <div class="col-lg row">
+                <form class="col-12 form-inline my-2 my-lg-0 row">
+                    <h2 class="col-2 name"><span class="badge badge-secondary">{{type == 'pack' ? 'pack' : 'cat'}} name:</span></h2>
+                    <input class="col-7 form-control mr-sm-2 name-input" type="text" placeholder="name" aria-label="Search" name="search" [(ngModel)]="container.name" />
+                    <button class="col-2 btn btn-secondary" (click)="save()">save</button>
+                </form>
+            <img src={{container.url}} />
+        </div>
+        <div class="col-lg row">
+            <button class="col-6 btn btn-info" (click)="changeImage()">change image</button>
+            <button class="col-6 btn btn-danger" (click)="delete()">delete</button>
+            <button class="col-12 btn btn-secondary" (click)="goBack()">back</button>
+        </div>
+    </div>
+    <div class="w-100" style="background-color: #{{type == 'pack' ? '5cb85c' : '0275d8'}};">
+        <span class="caption">Images:</span>
+        <button><input class="form-control" type="search" placeholder="Search" aria-label="Search" name="search" [(ngModel)]="imglistdataService.search"/></button>
+        <span style="margin-right: 2vw; float:right;"><app-size-buttons></app-size-buttons></span>
+    </div>
+</div>
+
+<app-imglist *ngIf="container" [images]="container.images" [type]="'nope'"></app-imglist>

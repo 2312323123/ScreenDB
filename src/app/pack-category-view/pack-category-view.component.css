@@ -1,0 +1,50 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+@media all and (orientation:portrait) {
+    img {
+        width: 100% !important;
+        height: auto;
+        display:block !important;
+        margin-left:auto !important;
+        margin-right:auto !important;
+    }
+}
+    
+@media all and (orientation:landscape) {
+    img {
+        min-height: 30vh;
+        max-height: 70vh;
+        display:block !important;
+        margin-left:auto !important;
+        margin-right:auto !important;
+    }
+}
+
+* {
+    overflow-x:hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+textarea {
+    display: none;
+}
+
+input {
+    font-weight: bold !important;
+}
+
+.name {
+    display: inline;
+}
+
+button, .name-input {
+    font-size: large !important;
+}
+
+.caption {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: aliceblue;
+    margin: 10px !important;
+    font-weight: bold;
+}

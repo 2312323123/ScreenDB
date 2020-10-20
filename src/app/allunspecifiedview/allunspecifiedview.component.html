@@ -1,0 +1,14 @@
+<h1 class="shadow" style="margin:0;">
+    <div class="row" style="margin:0;">
+        <button class="col-12 btn-lg btn-secondary shadow-lg" (click)="back()">back</button>
+    </div>
+    <div>
+        <form class="row form-inline">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="search" [(ngModel)]="imglistdataService.search"/>
+        </form>
+        <span style="margin-right: 2vw; float:right;"><app-size-buttons></app-size-buttons></span>
+    </div>
+</h1>
+
+<app-imglist *ngIf="path == 'all'" [images]="imgService.images" ></app-imglist>
+<app-imglist *ngIf="path == 'unspecified'" [images]="nope.images" [type]="'nope'"></app-imglist>

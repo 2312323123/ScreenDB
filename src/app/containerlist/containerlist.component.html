@@ -1,0 +1,22 @@
+<div class="container">
+    <ng-container *ngFor="let image of images">
+      <a
+        *ngIf="image.name.toLowerCase().includes(list.search.toLowerCase()) && borders[image.id] && image.id != 'all'"
+        (click)="elementClick(image.id)"
+        class="flex-item selected unselectable"
+        style="background-image: url('{{image.url}}'); height: 100%; width: {{count}}%;"
+        >
+        <div class="description meh dont-break-out">{{image.name == '' ? 'no name' : image.name}}</div>
+      </a>
+    </ng-container>
+    <ng-container *ngFor="let image of images">
+      <a
+        *ngIf="image.name.toLowerCase().includes(list.search.toLowerCase()) && !borders[image.id]"
+        (click)="elementClick(image.id)"
+        class="flex-item unselectable"
+        style="background-image: url('{{image.url}}'); height: 100%; width: {{count}}%;"
+        >
+        <div class="description">{{image.name == '' ? 'no name' : image.name}}</div>
+      </a>
+    </ng-container>
+  </div>

@@ -1,0 +1,36 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+img {
+    min-width: 30vw;
+    max-height: 70vh;
+}
+
+* {
+    overflow-x:hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+textarea {
+    display: none;
+}
+
+input {
+    font-weight: bold !important;
+}
+
+.name {
+    display: inline;
+}
+
+button, .name-input {
+    font-size: large !important;
+}
+
+button {
+    height: 3em;
+}
+
+form {
+    display: inline !important;
+}

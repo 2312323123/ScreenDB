@@ -1,0 +1,11 @@
+<div *ngIf="images" class="container">
+  <ng-container *ngFor="let image of images">
+    <a
+      *ngIf="image.name.toLowerCase().includes(list.search.toLowerCase())"
+      class="flex-item unselectable"
+      style="background-image: url('{{image.url}}'); height: 100%; width: {{count}}%;"
+      routerLink="/{{image.id == 'all' ? 'all' : (image.id == 'nope' ? 'unspecified' : ((type == 'cat' ? 'category' : (type == 'pack' ? 'pack' : 'details')) + '/' + image.id))}}">
+      <div class="description">{{image.name == '' ? 'no name' : image.name}}{{(type == 'cat' || type == 'pack') ? (" (" + image.images.length + ")") : ''}}</div>
+    </a>
+</ng-container>
+</div>

@@ -1,0 +1,32 @@
+<h1 class="shadow" style="margin:0; background-color: #{{route == 'packs' ? '5cb85c' : '0275d8'}};">
+    <div class="row" style="margin:0;">
+        <div class="col-md row">
+            <button class="col-6 btn btn-success shadow-lg" (click)="packClick()">Packs</button>
+            <button class="col-6 btn btn-primary" routerLink="/categories" (click)="catClick()">Categories</button>
+        </div>
+        
+        <div class="col-md row">
+            <button class="col-6 btn btn-info" (click)="urlInput()">add from url</button>
+            <input #url style="display:none;" id="UrlInput" name="url" type="text" value="{{urlValue}}" />
+
+            <input class="col-6 btn btn-info" type="button" id="loadFileXml" value="add from file" onclick="document.getElementById('file').click();" />
+            <form #fileform id="f2">
+                <input style="display:none;" type="file" id="file" name="fileToUpload[]" on-change="multipleFileSubmit()" accept="image/*" multiple />
+            </form>
+
+        </div>
+        <div class="col-md row">
+            <button class="col-6 btn btn-secondary" (click)="random()">random image</button>
+            <form class="col-6 form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search" [(ngModel)]="imglistdataService.search"/>
+            </form>
+        </div>
+    </div>
+    <div>
+        <span class="user-select-none" style="margin-left:2vw;" >{{route}}</span>
+        <span style="margin-right: 2vw; float:right;"><app-size-buttons></app-size-buttons></span>
+    </div>
+</h1>
+
+<app-imglist *ngIf="route == 'categories' && imgService.categories" [detImage]="undefined" [images]="imgService.categories" [type]="cat" ></app-imglist>
+<app-imglist *ngIf="route == 'packs' && imgService.packs" [detImage]="undefined" [images]="imgService.packs" [type]="pack" ></app-imglist>

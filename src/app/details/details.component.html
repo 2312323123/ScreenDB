@@ -1,0 +1,35 @@
+<div *ngIf="image" class="container-fluid" style="/* background-color: aqua; */">
+    <div class="row" style="margin:0;">
+        
+
+        
+        <div class="col-lg row">
+                <form class="col-12 form-inline my-2 my-lg-0 row">
+                    <h2 class="col-2 name"><span class="badge badge-secondary">image name:</span></h2>
+                    <input class="col-7 form-control mr-sm-2 name-input" type="text" placeholder="name" aria-label="Search" name="search" [(ngModel)]="image.name"/>
+                    <button class="col-2 btn btn-secondary" (click)="save()">save</button>
+                </form>
+            <img src={{image.url}} />
+        </div>
+        <div class="col-lg row">
+            <button class="col-6 btn btn-success" (click)="add(true)">add as pack</button>
+            <button class="col-6 btn btn-primary" (click)="add(false)">add as category</button>
+                <button class="col-6 btn btn-info" (click)="copyToClipboard(image.id)">copy id</button>
+                <button class="col-6 btn btn-secondary" (click)="goBack()">back</button>
+        </div>
+    </div>
+    <div class="w-100" style="background-color: #{{imglistdataService.showingPacks ? '5cb85c' : '0275d8'}};">
+        <button class="btn-lg btn-success" (click)="imglistdataService.showingPacks = true">packs</button>
+        <button class="btn-lg btn-primary" (click)="imglistdataService.showingPacks = false">categories</button>
+        <button><input class="form-control" type="search" placeholder="Search" aria-label="Search" name="search" [(ngModel)]="imglistdataService.search"/></button>
+        <button class="margin btn btn-danger" (click)="delete()">delete image</button>
+        <span style="margin-right: 2vw; float:right;"><app-size-buttons></app-size-buttons></span>
+    </div>
+</div>
+
+<div *ngIf="imglistdataService.showingPacks && imgService.packs && image">
+    <app-containerlist [detImage]="image" [images]="imgService.packs" [type]="'pack'" ></app-containerlist>
+</div>
+<div *ngIf="!imglistdataService.showingPacks && imgService.categories && image">
+    <app-containerlist [detImage]="image" [images]="imgService.categories" [type]="'cat'" ></app-containerlist>
+</div>
